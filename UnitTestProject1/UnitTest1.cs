@@ -10,7 +10,7 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         /// <summary>
-        /// 
+        /// 抓取当前开奖结果
         /// </summary>
         [TestMethod]
         public void TestMethod1()
