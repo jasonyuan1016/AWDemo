@@ -4,6 +4,7 @@ using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.RegularExpressions;
 
+
 namespace UnitTestProject1
 {
     [TestClass]
@@ -18,9 +19,11 @@ namespace UnitTestProject1
             string htmlInfo = GetHtmlInfo("http://caipiao.163.com/");
             Regex reg = new Regex(@"<div class=""awardDetail"">([\s\S]+?)<\/div>");
             htmlInfo = GetElementContent(htmlInfo, reg)[0];
-            reg = new Regex(@"<em class=""smallRedball"">([\s\S]+?)<\/em>");
+            reg = new Regex(@"<strong class=""c_ba2636"">(.*?)<\/strong>");
+            string numb = GetElementContent(htmlInfo, reg)[0];
+            reg = new Regex(@"<em class=""smallRedball"">(.*?)<\/em>");
             string[] smallRedball = GetElementContent(htmlInfo, reg);
-            reg = new Regex(@"<em class=""smallBlueball"">([\s\S]+?)<\/em>");
+            reg = new Regex(@"<em class=""smallBlueball"">(.*?)<\/em>");
             string[] smallBlueball = GetElementContent(htmlInfo, reg);
         }
 
